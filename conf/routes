@@ -1,0 +1,40 @@
+# Routes
+# This file defines all application routes (Higher priority routes first)
+# ~~~~
+
+# Home page
+GET     /                           controllers.Application.index
+POST    /authenticate               controllers.Application.authenticate
+
+# Login Success
+GET    /loginsuccess/:name          controllers.Application.loginsuccess(name:String)
+
+# Signup
+GET   /singuppage                   controllers.Application.signup
+POST  /signuppage/signup            controllers.Application.submit
+
+#About me
+GET  /aboutme                      controllers.Application.aboutme
+
+# Contact me
+GET /contactme                      controllers.Application.contactme
+
+# Job Desc Info
+POST   /create                      controllers.Application.create
+
+# Computers list (look at the default values for pagination parameters)
+GET     /computers                  controllers.Application.list(p:Int ?= 0, s:Int ?= 2, f ?= "")
+GET     /computers/:id              controllers.Application.edit(id:Long)
+
+# Add computer
+GET     /newcomputer                controllers.Application.createComputer
+POST    /computers                  controllers.Application.save
+
+# back to home page
+GET    /backtohomepage             controllers.Application.backToHLoginSuccess
+
+
+
+
+# Map static resources from the /public folder to the /assets URL path
+GET     /assets/*file               controllers.Assets.at(path="/public", file)

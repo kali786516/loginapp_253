@@ -1,0 +1,35 @@
+@(computer: Computer)
+
+@layout("Sign Up") {
+
+
+<h2>New Computer Added:</h2>
+
+<h6>CompanyID</h6>
+
+<p>
+    @computer.companyId
+</p>
+
+<h6>Discontinued</h6>
+
+<p>
+    @computer.discontinued
+</p>
+
+<h6>Introduced</h6>
+
+<p>
+    @computer.introduced
+</p>
+
+<h6>Name</h6>
+
+<p>
+    @computer.name
+</p>
+
+<div class="actions">
+    <a href="@routes.Application.backToHLoginSuccess" class="btn btn-success">Back To Home Page</a>
+</div>
+}

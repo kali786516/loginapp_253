@@ -1,0 +1,79 @@
+@(computerForm: Form[Computer], companies: Seq[(String, String)])
+
+@import helper._
+
+@implicitFieldConstructor = @{ FieldConstructor(twitterBootstrapInput.f) }
+
+@main {
+
+<html>
+<head>
+    <title>Font Awesome Icons</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<body>
+
+<h1>Add a computer</h1>
+
+@form(routes.Application.save()) {
+
+<fieldset>
+
+    @inputText(computerForm("name"), '_label -> "Computer name")
+    @inputText(computerForm("introduced"), '_label -> "Introduced date")
+    @inputText(computerForm("discontinued"), '_label -> "Discontinued date")
+
+    @select(
+    computerForm("company"),
+    companies,
+    '_label -> "Company", '_default -> "-- Choose a company --",
+    '_showConstraints -> false
+    )
+
+
+
+</fieldset>
+
+
+
+
+<div class="actions">
+    <br>
+    <i class="fa fa-database" style="font-size:48px;color:red"></i>
+    &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+    <i class="fa fa-arrow-right" style="font-size:48px;color:green"></i>
+    <i class="fa fa-arrow-right" style="font-size:48px;color:green"></i>
+    <i class="fa fa-arrow-right" style="font-size:48px;color:green"></i>
+    <i class="fa fa-arrow-right" style="font-size:48px;color:green"></i>
+    &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+    <img src="@routes.Assets.at("images/if_evernote_1220324.png")" width="59.5" height="59.5"/>
+    <p><font size="1"><b>JDBC DB &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp ETL &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp HADOOP</b></font></p>
+    <br>
+    <br>
+    <i class="fa fa-database" style="font-size:48px;color:black"></i>
+    &nbsp&nbsp
+    <i class="fa fa-play" style="font-size:48px;color:green"></i>
+    <i class="fa fa-play" style="font-size:48px;color:green"></i>
+    <i class="fa fa-play" style="font-size:48px;color:green"></i>
+    <i class="fa fa-play" style="font-size:48px;color:green"></i>
+    &nbsp&nbsp
+    <img src="@routes.Assets.at("images/if_evernote_1220324.png")" width="59.5" height="59.5"/>
+    <p><font size="1"><b>JDBC DB &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+        &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp STREAMING &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+        &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+        &nbsp HADOOP</b></font></p>
+
+
+    <br>
+    <br>
+    <input type="submit" value="Create this computer" class="btn btn-success"> or
+
+    <a href="@routes.Application.list()" class="btn btn-danger">Cancel</a>
+</div>
+
+}
+
+}
+</body>
+</html>

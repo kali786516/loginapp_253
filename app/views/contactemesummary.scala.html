@@ -1,0 +1,35 @@
+@(contact: ContactMe)
+
+@layout("Sign Up") {
+
+
+<h2>Your Info Submitted:</h2>
+
+<h6>Name</h6>
+
+<p>
+    @contact.name
+</p>
+
+<h6>Email</h6>
+
+<p>
+    @contact.email
+</p>
+
+<h6>Phone</h6>
+
+<p>
+    @contact.phone
+</p>
+
+<h6>JobSpec</h6>
+
+<p>
+    @contact.jobspec
+</p>
+
+<div class="actions">
+    <a href="@routes.Application.index" class="btn btn-success">Back To Login Page</a>
+</div>
+}
